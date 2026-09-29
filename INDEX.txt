@@ -1,0 +1,6 @@
+NEW PRACTICAL PACK
+
+BOILERPLATES: one each for VB.NET, C#, ASP.NET.
+C# concepts: Operator Overloading, Method Overloading, Method Overriding, Indexer, Delegate, Event.
+ASPX: Basic Web Form, Web Controls, Validation, Events, DataReader, DataAdapter, GridView, CRUD.
+Relevant source files include expanded point-wise theory/viva notes at the bottom of the code.

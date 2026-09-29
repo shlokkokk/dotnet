@@ -1,0 +1,29 @@
+ADO.NET THEORY / VIVA
+
+DATAREADER
+1. SqlDataReader is used for connected data access.
+2. It is forward-only and read-only.
+3. ExecuteReader() returns a reader for a command that produces rows.
+4. Read() moves through the records one at a time.
+5. It is suitable when data only needs to be read sequentially.
+
+DATAADAPTER
+1. SqlDataAdapter is commonly used for disconnected data access.
+2. It acts as a bridge between the database and an in-memory DataTable/DataSet.
+3. Fill() retrieves data and fills the in-memory structure.
+4. It is useful when data needs to be displayed or processed after retrieval.
+
+GRIDVIEW
+1. GridView is an ASP.NET Web Forms control for displaying tabular data.
+2. DataSource specifies the source of the displayed records.
+3. DataBind() binds the source to the control.
+4. A common flow is SELECT -> DataAdapter -> DataTable -> GridView -> DataBind().
+
+CRUD
+1. CRUD stands for Create, Read, Update and Delete.
+2. Create -> INSERT.
+3. Read -> SELECT.
+4. Update -> UPDATE.
+5. Delete -> DELETE.
+6. ExecuteNonQuery() is normally used for INSERT, UPDATE and DELETE.
+7. ExecuteScalar() returns one value, such as a count or aggregate result.

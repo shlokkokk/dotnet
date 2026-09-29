@@ -1,0 +1,1 @@
+using System; namespace PracticalPack { public partial class EventDemo:System.Web.UI.Page { protected void btnClick_Click(object sender,EventArgs e){ lblResult.Text="Button Click event executed."; } } }

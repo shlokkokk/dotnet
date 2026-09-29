@@ -1,0 +1,1 @@
+using System; namespace PracticalPack { public partial class ValidationDemo:System.Web.UI.Page { protected void btnSubmit_Click(object sender,EventArgs e){ if(Page.IsValid) Response.Write("Valid input."); } } }

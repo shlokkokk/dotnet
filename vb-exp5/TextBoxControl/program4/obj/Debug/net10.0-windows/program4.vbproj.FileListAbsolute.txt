@@ -1,0 +1,16 @@
+C:\Users\Admin\OneDrive\TY_FS\dot-net\vb-exp5\program4\program4\obj\Debug\net10.0-windows\program4.Form1.resources
+C:\Users\Admin\OneDrive\TY_FS\dot-net\vb-exp5\program4\program4\obj\Debug\net10.0-windows\program4.vbproj.GenerateResource.cache
+C:\Users\Admin\OneDrive\TY_FS\dot-net\vb-exp5\program4\program4\obj\Debug\net10.0-windows\program4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\OneDrive\TY_FS\dot-net\vb-exp5\program4\program4\obj\Debug\net10.0-windows\program4.AssemblyInfoInputs.cache
+C:\Users\Admin\OneDrive\TY_FS\dot-net\vb-exp5\program4\program4\obj\Debug\net10.0-windows\program4.AssemblyInfo.vb
+C:\Users\Admin\OneDrive\TY_FS\dot-net\vb-exp5\program4\program4\obj\Debug\net10.0-windows\program4.vbproj.CoreCompileInputs.cache
+C:\Users\Admin\OneDrive\TY_FS\dot-net\vb-exp5\program4\program4\bin\Debug\net10.0-windows\program4.exe
+C:\Users\Admin\OneDrive\TY_FS\dot-net\vb-exp5\program4\program4\bin\Debug\net10.0-windows\program4.deps.json
+C:\Users\Admin\OneDrive\TY_FS\dot-net\vb-exp5\program4\program4\bin\Debug\net10.0-windows\program4.runtimeconfig.json
+C:\Users\Admin\OneDrive\TY_FS\dot-net\vb-exp5\program4\program4\bin\Debug\net10.0-windows\program4.dll
+C:\Users\Admin\OneDrive\TY_FS\dot-net\vb-exp5\program4\program4\bin\Debug\net10.0-windows\program4.pdb
+C:\Users\Admin\OneDrive\TY_FS\dot-net\vb-exp5\program4\program4\obj\Debug\net10.0-windows\program4.dll
+C:\Users\Admin\OneDrive\TY_FS\dot-net\vb-exp5\program4\program4\obj\Debug\net10.0-windows\refint\program4.dll
+C:\Users\Admin\OneDrive\TY_FS\dot-net\vb-exp5\program4\program4\obj\Debug\net10.0-windows\program4.pdb
+C:\Users\Admin\OneDrive\TY_FS\dot-net\vb-exp5\program4\program4\obj\Debug\net10.0-windows\program4.genruntimeconfig.cache
+C:\Users\Admin\OneDrive\TY_FS\dot-net\vb-exp5\program4\program4\obj\Debug\net10.0-windows\ref\program4.dll

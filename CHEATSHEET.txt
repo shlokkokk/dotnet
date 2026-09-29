@@ -1,0 +1,470 @@
+DOT.NET PRACTICAL — EMERGENCY CHEATSHEET
+==========================================
+
+OPEN / RUN
+-----------
+• Extract the ZIP first.
+• Console VB: open the .vbproj inside the concept folder.
+• Console C#: open the .csproj.
+• Windows Forms: open the .vbproj, then F5.
+• ASP.NET Web Forms: open the web project; run with IIS Express.
+• If VS shows a project/solution choice, open the project file, NOT a .vb file by itself.
+
+VISUAL STUDIO "WEIRD" ERRORS
+----------------------------
+• "System.Int32/Object/Void not defined" = wrong/missing target framework/project setup.
+• "Microsoft.NETCore.App.Ref not found" = a .NET Core/8 project is being used. Use the supplied .NET Framework project.
+• "BaseOutputPath/OutputPath is not set" = Configuration/Platform mismatch. Project is prepared for Debug + Any CPU and Debug + x86.
+• If top toolbar says x86, Any CPU is also valid. If an old project somehow still selects x86, Build > Configuration Manager > select Any CPU.
+• If F5 says EXE missing: Build > Rebuild Solution first.
+• If code has no red squiggles but F5 fails, check Build Output, not the code first.
+• If Visual Studio asks to reload/retarget, do not randomly choose .NET 8; keep .NET Framework 4.8 for this pack.
+
+VB.NET CONSOLE
+--------------
+Imports System
+Module Program
+    Sub Main()
+        ' code
+    End Sub
+End Module
+
+Input:
+Dim n As Integer
+If Not Integer.TryParse(Console.ReadLine(), n) Then
+    Console.WriteLine("Invalid input")
+End If
+
+Double:
+Dim x As Double
+Double.TryParse(Console.ReadLine(), x)
+
+DECISION
+--------
+If condition Then
+    ...
+ElseIf condition Then
+    ...
+Else
+    ...
+End If
+
+Select Case value
+    Case 1
+    Case 2, 3
+    Case Else
+End Select
+
+LOOPS
+-----
+For i = 1 To 10
+    Console.WriteLine(i)
+Next
+
+For i = 10 To 1 Step -1
+    ...
+Next
+
+Do While condition
+    ...
+Loop
+
+Do
+    ...
+Loop While condition
+
+Nested loop = outer loop + inner loop.
+
+ARRAYS
+-------
+Index starts at 0.
+Last valid index = Length - 1.
+
+Dim a() As Integer = {10,20,30}
+For i = 0 To a.Length - 1
+    Console.WriteLine(a(i))
+Next
+
+2D:
+Dim a(,) As Integer = {{1,2},{3,4}}
+a(row,column)
+
+COMMON ARRAY FUMBLE:
+• Never use index = Length.
+• For 6 elements: indexes are 0..5.
+
+ARRAYLIST
+---------
+Imports System.Collections
+
+Dim list As New ArrayList()
+list.Add(10)
+list.Insert(0, 5)
+list.Contains(10)
+list.Remove(10)       ' removes matching element
+list.RemoveAt(0)      ' removes by index
+list.Sort()
+list.Reverse()
+list.Clear()
+
+IMPORTANT:
+Remove(value) != RemoveAt(index).
+
+WINDOWS FORMS
+-------------
+Form = window/container.
+Label = displays text.
+TextBox = accepts/displays text.
+Button = Click event/action.
+
+Button:
+Private Sub Button1_Click(...) Handles Button1.Click
+    ...
+End Sub
+
+TextBox input:
+Dim n As Integer
+If Integer.TryParse(TextBox1.Text, n) Then ...
+
+MessageBox:
+MessageBox.Show("Hello")
+MessageBox.Show("Hello", "Title")
+MessageBox.Show("Hello", "Title", MessageBoxButtons.OK)
+
+LISTBOX / COMBOBOX
+------------------
+ListBox:
+ListBox1.Items.Add("C#")
+ListBox1.Items.Remove("C#")
+ListBox1.Items.Clear()
+ListBox1.SelectedItem
+
+ComboBox:
+ComboBox1.Items.Add("C#")
+ComboBox1.SelectedItem
+
+EDGE CASE:
+SelectedItem can be Nothing. Check before using .ToString.
+
+CHECKBOX
+--------
+Multiple checkboxes can be checked.
+
+If CheckBox1.Checked Then
+    ...
+End If
+
+RADIOBUTTON
+-----------
+Normally one choice in the same container/group.
+
+If RadioButton1.Checked Then
+    ...
+ElseIf RadioButton2.Checked Then
+    ...
+End If
+
+C# BASIC
+--------
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        ...
+    }
+}
+
+C# IF / LOOP
+------------
+if (condition) { ... }
+else if (condition) { ... }
+else { ... }
+
+for (int i = 1; i <= 10; i++) { ... }
+
+while (condition) { ... }
+
+do { ... } while (condition);
+
+switch (value)
+{
+    case 1:
+        ...
+        break;
+    default:
+        ...
+        break;
+}
+
+C# OOP
+------
+class Student
+{
+    public int Id;
+    public string Name;
+
+    public Student(int id, string name)
+    {
+        this.Id = id;
+        this.Name = name;
+    }
+}
+
+Student s = new Student(1, "A");
+
+this = current object.
+
+Default constructor = no parameters.
+Parameterized constructor = has parameters.
+
+Destructor/finalizer:
+~ClassName() { ... }
+
+EDGE CASE:
+Do NOT depend on a finalizer running at a predictable moment. It is managed by GC.
+
+INHERITANCE / POLYMORPHISM
+--------------------------
+class Animal
+{
+    public virtual void Speak() { ... }
+}
+
+class Dog : Animal
+{
+    public override void Speak() { ... }
+}
+
+Compile-time polymorphism = overloading.
+Runtime polymorphism = overriding.
+
+INTERFACE
+---------
+interface IShape
+{
+    void Draw();
+}
+
+class Circle : IShape
+{
+    public void Draw() { ... }
+}
+
+The implementing class must implement the interface members.
+
+ARRAYS / COLLECTIONS
+--------------------
+int[] a = {1,2,3};
+
+int[,] matrix = new int[2,3];
+
+int[][] jagged = new int[2][];
+jagged[0] = new int[] {1,2};
+jagged[1] = new int[] {3,4,5};
+
+List<T> = duplicates allowed.
+Stack<T> = LIFO; Push / Pop / Peek.
+Queue<T> = FIFO; Enqueue / Dequeue / Peek.
+HashSet<T> = unique elements; no duplicates.
+SortedSet<T> = unique + ascending order.
+
+REGEX
+-----
+using System.Text.RegularExpressions;
+
+bool ok = Regex.IsMatch(text, pattern);
+
+Common:
+@"\bS\S*"       words starting with S
+@"\s+"          one or more whitespace characters
+
+EDGE CASE:
+In a normal C# string, backslash may need escaping:
+"\\s+"
+Verbatim string avoids this:
+@"\s+"
+
+EXCEPTIONS
+----------
+try
+{
+    ...
+}
+catch (Exception ex)
+{
+    Console.WriteLine(ex.Message);
+}
+finally
+{
+    ...
+}
+
+Division by zero, invalid conversion, null references, bad indexes etc. can cause runtime exceptions.
+
+DELEGATE
+--------
+delegate void Calc(int a, int b);
+
+static void Add(int a, int b)
+{
+    Console.WriteLine(a + b);
+}
+
+Calc c = Add;
+c(10, 20);
+
+SIGNATURE MUST MATCH:
+return type + parameter types/count.
+
+EVENT
+-----
+event uses a delegate.
+Subscribe with +=.
+Handler must have a compatible signature.
+
+STRINGS
+-------
+String.Compare(a,b)
+a.Contains("text")
+a.Substring(startIndex)
+string.Concat(a,b)
+a + b
+
+SUBSTRING EDGE:
+startIndex must be valid. Otherwise exception.
+
+ASP.NET WEB FORMS
+-----------------
+A Web Form normally has:
+<%@ Page Language="VB" ... %>
+<form runat="server">
+...
+</form>
+
+runat="server" = server-side processing/control.
+
+Code-behind event:
+Protected Sub Button1_Click(...) Handles Button1.Click
+    ...
+End Sub
+
+COMMON ASP.NET FUMBLES:
+• Control ID in .aspx must match the ID used in VB.
+• Event name must match the Handles/OnClick connection.
+• Inherits class must match code-behind class.
+• CodeBehind filename must match the file.
+• Use If Not IsPostBack Then for initial-only data binding.
+
+ADO.NET
+-------
+Imports System.Data
+Imports System.Data.SqlClient
+
+SqlConnection = connection.
+SqlCommand = SQL command.
+SqlDataReader = connected, forward-only, read-only data.
+SqlDataAdapter = bridge to DataSet/DataTable.
+DataSet = disconnected representation.
+GridView = displays tabular data.
+
+CRUD:
+SELECT  -> ExecuteReader / DataAdapter
+INSERT  -> ExecuteNonQuery
+UPDATE  -> ExecuteNonQuery
+DELETE  -> ExecuteNonQuery
+
+Single value:
+ExecuteScalar()
+
+DataAdapter:
+Dim da As New SqlDataAdapter("SELECT ...", con)
+Dim dt As New DataTable()
+da.Fill(dt)
+
+GridView:
+GridView1.DataSource = dt
+GridView1.DataBind()
+
+ADO.NET EDGE CASES
+------------------
+• Connection string name must exactly match Web.config.
+• Database name must exist.
+• Table name must match SQL.
+• Column names must match SQL.
+• Parameter names must match query names.
+• Open connection before ExecuteNonQuery/ExecuteReader.
+• Close/dispose connections/readers.
+• Use parameters instead of concatenating user input.
+• ExecuteScalar returns Object; convert it to the required type.
+• ExecuteNonQuery returns affected-row count.
+
+EXP 14 / GRIDVIEW
+-----------------
+Flow:
+Web Form → Button Event → SqlCommand INSERT → Database
+Web Form → SqlDataAdapter → DataTable/DataSet → GridView
+
+If GridView is empty:
+1. Check database/table.
+2. Check connection string.
+3. Check SELECT query.
+4. Check DataSource assignment.
+5. Call DataBind().
+
+EXP 15 / REGISTRATION + LOGIN
+-----------------------------
+Registration:
+user input → validation → INSERT → success → Login
+
+Login:
+username/password → SELECT COUNT(*) / query → if valid → Session("username") → Student Area
+
+Session:
+Session("username") = username
+Session("username")
+Session.Abandon()
+
+If Student Area redirects immediately:
+the Session value was not set, or the session check is wrong.
+
+DATABASE / LOCALDB
+------------------
+If database practical fails with:
+"Cannot open database" / "server not found" / "LocalDB not found":
+• Check SQL Server / LocalDB is installed and running.
+• Check the connection string.
+• Check the database exists.
+• Run DatabaseSetup.sql if needed.
+• Then rebuild/run the Web Forms project.
+
+If Visual Studio does not show ASP.NET/Web Forms templates:
+install the ASP.NET and web development workload plus .NET Framework/Web Forms tooling.
+
+LAST 2-MINUTE RULE
+------------------
+1. Read the question.
+2. Identify language.
+3. Identify concept.
+4. Open the concept folder.
+5. Open .vbproj/.csproj.
+6. Change only names/values needed by the question.
+7. Build before F5 if anything changed.
+8. Test one normal input + one edge input.
+9. Do not copy broken manual syntax blindly.
+10. Keep the solution simple and explain the concept if asked.
+
+MANUAL-SPECIFIC REMINDERS
+-------------------------
+• The manual's VB.NET Exp. 3 covers basic console programs, input, constants, local/global scope and rectangle area/perimeter.
+• VB.NET Exp. 4 covers operators, If/ElseIf, Select Case, Do While, For/Next, nested loops and patterns.
+• VB.NET Exp. 5 covers Form, Label, Button and TextBox.
+• VB.NET Exp. 6 covers ListBox, ComboBox, CheckBox and RadioButton.
+• VB.NET Exp. 7 covers ArrayList and arrays.
+• C# Exp. 9 covers basic control flow, classes/objects, constructors, this, destructor/finalizer and struct.
+• C# Exp. 11 covers interface, arrays, indexers and collections.
+• C# Exp. 12 covers strings, Regex, exceptions, delegates and events.
+• Exp. 13 is ADO.NET introduction/theory in the supplied manual.
+• Exp. 14 is ASP.NET + GridView + ADO.NET feedback.
+• Exp. 15 is ASP.NET registration/login/student area.

@@ -1,0 +1,88 @@
+Program 1:Develop a windows form application using Form Control.
+
+Public Class Form1
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub btnGreet_Click(sender As Object, e As EventArgs) Handles btnGreet.Click
+        If txtName.Text = "" Then
+            MessageBox.Show("Please enter your name.")
+        Else
+            lblOutput.Text = "Hello, " & txtName.Text & "! Welcome to VB.NET."
+        End If
+    End Sub
+End Class
+Program 1:Develop a windows form application using Form Control. 
+Output:
+
+Program 2:Write a demonstrate the use of Button, Label and TextBox. Take two 
+TextBox Which takes two inputs from the user name and number shows the message 
+box to print the user details while user press on Button. 
+Output:
+Public Class Form1
+    Private Sub btnShow_Click(sender As Object, e As EventArgs) Handles btnShow.Click
+        If txtName.Text = "" Or txtNumber.Text = "" Then
+            MessageBox.Show("Please fill in both fields.")
+        Else
+            MessageBox.Show("Name: " & txtName.Text & vbCrLf & "Number: " & txtNumber.Text)
+        End If
+    End Sub
+End Class
+Program 3: Write a Program on Login form using controls. 
+Output:
+Public Class Form1
+    Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
+        If txtUser.Text = "admin" And txtPass.Text = "password" Then
+            MessageBox.Show("Login successful!")
+        Else
+            MessageBox.Show("Invalid username or password.")
+        End If
+    End Sub
+End Class
+Program 4:Design a simple calculator using VB.NET. 
+Output:
+Public Class Form1
+
+    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+        Dim num1 As Double = CDbl(txtNum1.Text)
+        Dim num2 As Double = CDbl(txtNum2.Text)
+        Dim result As Double = num1 + num2
+
+        lblResult.Text = "Result: " & result.ToString()
+
+    End Sub
+
+    Private Sub btnSub_Click(sender As Object, e As EventArgs) Handles btnSub.Click
+        Dim num1 As Double = CDbl(txtNum1.Text)
+        Dim num2 As Double = CDbl(txtNum2.Text)
+        Dim result As Double = num1 - num2
+
+        lblResult.Text = "Result: " & result.ToString()
+
+    End Sub
+
+    Private Sub btnMult_Click(sender As Object, e As EventArgs) Handles btnMult.Click
+        Dim num1 As Double = CDbl(txtNum1.Text)
+        Dim num2 As Double = CDbl(txtNum2.Text)
+        Dim result As Double = num1 * num2
+
+        lblResult.Text = "Result: " & result.ToString()
+
+    End Sub
+
+    Private Sub btnDiv_Click(sender As Object, e As EventArgs) Handles btnDiv.Click
+        Dim num1 As Double = CDbl(txtNum1.Text)
+        Dim num2 As Double = CDbl(txtNum2.Text)
+        Dim result As Double = num1 / num2
+
+        lblResult.Text = "Result: " & result.ToString()
+
+    End Sub
+
+    Private Sub btnReset_Click(sender As Object, e As EventArgs) Handles btnReset.Click
+        txtNum1.Clear()
+        txtNum2.Clear()
+        lblResult.Text = "Enter Numbers To see Result"
+    End Sub
+End Class

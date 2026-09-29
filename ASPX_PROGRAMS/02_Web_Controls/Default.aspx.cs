@@ -1,0 +1,1 @@
+using System; namespace PracticalPack { public partial class WebControls:System.Web.UI.Page { protected void btnShow_Click(object sender,EventArgs e){ lblResult.Text="Name: "+txtName.Text+" | Course: "+ddlCourse.SelectedValue+" | Student: "+chkStudent.Checked; } } }

@@ -1,0 +1,128 @@
+Program 1:Write a program to demonstrate Listbox.
+Public Class Form1
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        lstItems.Items.Add("Item 1")
+        lstItems.Items.Add("Item 2")
+        lstItems.Items.Add("Item 3")
+    End Sub
+    Private Sub lstItems_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstItems.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+        If txtNewItem.Text = "" Then
+            MessageBox.Show("Please enter a new item.")
+        Else
+            lstItems.Items.Add(txtNewItem.Text)
+            txtNewItem.Text = ""
+        End If
+    End Sub
+
+    Private Sub btnRemove_Click(sender As Object, e As EventArgs) Handles btnRemove.Click
+        If lstItems.SelectedIndex = -1 Then
+            MessageBox.Show("Please select an item to remove.")
+        Else
+            lstItems.Items.RemoveAt(lstItems.SelectedIndex)
+        End If
+    End Sub
+
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        lstItems.Items.Clear()
+    End Sub
+
+    Private Sub btnShowSelected_Click(sender As Object, e As EventArgs) Handles btnShowSelected.Click
+        If lstItems.SelectedIndex = -1 Then
+            MessageBox.Show("Please select an item.")
+        Else
+            lblResult.Text = "Selected Item: " & lstItems.SelectedItem
+        End If
+    End Sub
+
+    Private Sub btnTotal_Click(sender As Object, e As EventArgs) Handles btnTotal.Click
+        lblTotal.Text = "Total: " & lstItems.Items.Count.ToString()
+    End Sub
+End Class
+
+Program 2:Write a program to demonstrate Combobox.
+Public Class Form1
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' Add items to the ComboBox
+        cboItems.Items.Add("Item 1")
+        cboItems.Items.Add("Item 2")
+        cboItems.Items.Add("Item 3")
+        cboItems.Items.Add("Item 4")
+    End Sub
+    Private Sub cboItems_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboItems.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub btnShowChoice_Click(sender As Object, e As EventArgs) Handles btnShowChoice.Click
+        If cboItems.SelectedIndex = -1 Then
+            MessageBox.Show("Please select an item.")
+        Else
+            lblChosen.Text = "Chosen Item: " & cboItems.SelectedItem.ToString()
+
+        End If
+    End Sub
+End Class
+
+Program 3: Write a program to demonstrate Checkbox.
+Imports System.Collections.Generic
+
+Public Class Form1
+
+    Private Sub btnShowHobbies_Click(sender As Object, e As EventArgs) Handles btnShowHobbies.Click
+        Dim hobbies As New List(Of String)
+
+        If chkReading.Checked Then
+            hobbies.Add("Reading")
+        End If
+        If chkMusic.Checked Then
+            hobbies.Add("Music")
+        End If
+        If chkSports.Checked Then
+            hobbies.Add("Sports")
+        End If
+        If chkGaming.Checked Then
+            hobbies.Add("Gaming")
+        End If
+
+        If hobbies.Count = 0 Then
+            lblResult.Text = "No hobbies selected."
+        Else
+            lblResult.Text = $"Selected hobbies: {String.Join(", ", hobbies)}"
+        End If
+    End Sub
+
+End Class
+
+Program 4: Write a program to demonstrate Radiobox.
+Public Class Form1
+    Dim result As String
+    Private Sub rdbEasy_CheckedChanged(sender As Object, e As EventArgs) Handles rdbEasy.CheckedChanged
+        If rdbEasy.Checked Then
+            result = "Easy"
+            lblSelected.Text = $"Selected: {result}"
+        End If
+    End Sub
+
+    Private Sub rdbMedium_CheckedChanged(sender As Object, e As EventArgs) Handles rdbMedium.CheckedChanged
+        If rdbMedium.Checked Then
+            result = "Medium"
+            lblSelected.Text = $"Selected: {result}"
+        End If
+    End Sub
+
+    Private Sub rdbHard_CheckedChanged(sender As Object, e As EventArgs) Handles rdbHard.CheckedChanged
+        If rdbHard.Checked Then
+            result = "Hard"
+            lblSelected.Text = $"Selected: {result}"
+        End If
+    End Sub
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+End Class
+
+
